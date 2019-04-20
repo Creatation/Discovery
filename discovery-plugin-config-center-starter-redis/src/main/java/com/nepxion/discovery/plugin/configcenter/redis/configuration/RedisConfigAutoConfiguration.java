@@ -10,9 +10,13 @@ package com.nepxion.discovery.plugin.configcenter.redis.configuration;
  * @version 1.0
  */
 
+import com.nepxion.discovery.common.redis.constant.RedisConstant;
+import com.nepxion.discovery.plugin.configcenter.adapter.ConfigAdapter;
+import com.nepxion.discovery.plugin.configcenter.redis.adapter.RedisConfigAdapter;
+import com.nepxion.discovery.plugin.framework.adapter.PluginAdapter;
+import com.nepxion.discovery.plugin.framework.context.PluginContextAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -20,11 +24,7 @@ import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
-import com.nepxion.discovery.common.redis.constant.RedisConstant;
-import com.nepxion.discovery.plugin.configcenter.adapter.ConfigAdapter;
-import com.nepxion.discovery.plugin.configcenter.redis.adapter.RedisConfigAdapter;
-import com.nepxion.discovery.plugin.framework.adapter.PluginAdapter;
-import com.nepxion.discovery.plugin.framework.context.PluginContextAware;
+import javax.annotation.Resource;
 
 @Configuration
 public class RedisConfigAutoConfiguration {
@@ -45,13 +45,13 @@ public class RedisConfigAutoConfiguration {
         }
     }
 
-    @Autowired
+    @Resource
     private RedisConnectionFactory redisConnectionFactory;
 
-    @Autowired
+    @Resource
     protected PluginContextAware pluginContextAware;
 
-    @Autowired
+    @Resource
     private PluginAdapter pluginAdapter;
 
     @Bean

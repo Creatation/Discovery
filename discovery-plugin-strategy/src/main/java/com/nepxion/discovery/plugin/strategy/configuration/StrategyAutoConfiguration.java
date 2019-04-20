@@ -15,6 +15,9 @@ import org.springframework.context.annotation.Configuration;
 
 import com.nepxion.discovery.plugin.strategy.constant.StrategyConstant;
 
+/**
+ * 这个是用来干嘛的？嗯？
+ */
 @Configuration
 @RibbonClients(defaultConfiguration = { StrategyLoadBalanceConfiguration.class })
 @ConditionalOnProperty(value = StrategyConstant.SPRING_APPLICATION_STRATEGY_CONTROL_ENABLED, matchIfMissing = true)
