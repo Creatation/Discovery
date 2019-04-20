@@ -23,16 +23,18 @@ import com.nepxion.discovery.plugin.framework.listener.loadbalance.LoadBalanceLi
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.ServerList;
 
+import javax.annotation.Resource;
+
 @Configuration
 @AutoConfigureAfter(ConsulRibbonClientConfiguration.class)
 public class ConsulLoadBalanceConfiguration {
-    @Autowired
+    @Resource
     private ConsulClient client;
 
     @Autowired
     private ConfigurableEnvironment environment;
 
-    @Autowired
+    @Resource
     private LoadBalanceListenerExecutor loadBalanceListenerExecutor;
 
     @Bean
